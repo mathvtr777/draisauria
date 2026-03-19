@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dra Isauria d'Avila — Biomédica habilitada em estética avançada. Harmonização facial em Natal, RN.">
+  <meta property="og:title" content="Dra Isauria d'Avila — Estética Avançada em Natal RN">
+  <meta property="og:description" content="Sutileza, harmonia e beleza em cada detalhe. Agende sua consulta.">
+  <meta name="theme-color" content="#D4A09A">
+  <title>Dra Isauria d'Avila — Estética Avançada · Natal RN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Nunito:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#inicio" class="nav-logo">
+        <img src="fotos/logo.png" alt="Dra Isauria d'Avila" class="nav-logo-img" onerror="this.style.display='none'">
+        <span class="nav-logo-texto">Dra Isauria d'Avila</span>
+      </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Drawer mobile -->
+  <div class="nav-drawer" id="navDrawer" aria-hidden="true">
+    <button class="drawer-close" id="drawerClose" aria-label="Fechar">✕</button>
+    <div class="drawer-header">
+      <p class="drawer-nome">Dra Isauria d'Avila</p>
+      <p class="drawer-cred">Biomédica · CRBM 13878</p>
+    </div>
+    <nav class="drawer-nav">
+      <a href="#inicio" class="drawer-link">Início</a>
+      <a href="#sobre" class="drawer-link">Sobre</a>
+      <a href="#procedimentos" class="drawer-link">Procedimentos</a>
+      <a href="#resultados" class="drawer-link">Resultados</a>
+      <a href="#contato" class="drawer-link">Contato</a>
+    </nav>
+    <a href="https://wa.me/5584994598000" class="btn-primario drawer-btn" target="_blank" rel="noopener">
+      Agendar consulta
+    </a>
+  </div>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+
+  <!-- ============================================================
+       1. HERO — foto tela cheia com texto sobreposto
+  ============================================================ -->
+  <section class="hero" id="inicio">
+    <div class="hero-conteudo">
+      <span class="hero-tag">CRBM 13878 · Biomédica Esteta · Natal RN</span>
+      <h1 class="hero-titulo">Sutileza,<br><em>harmonia</em><br>e beleza em<br>cada detalhe.</h1>
+      <div class="hero-linha"></div>
+      <p class="hero-sub">Resultados naturais com cuidado e respeito à sua individualidade.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/5584994598000" class="btn-primario" target="_blank" rel="noopener">Agendar consulta</a>
+        <a href="#sobre" class="btn-ghost">Conheça a Isa</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       2. CREDENCIAIS — marquee animado
+  ============================================================ -->
+  <div class="credenciais">
+    <div class="credenciais-track">
+      <span>Desde 2021</span>
+      <span>Resultados Naturais</span>
+      <span>Biomédica Habilitada</span>
+      <span>Natal RN</span>
+      <span>Atendimento Personalizado</span>
+      <!-- duplicado para loop contínuo -->
+      <span>Desde 2021</span>
+      <span>Resultados Naturais</span>
+      <span>Biomédica Habilitada</span>
+      <span>Natal RN</span>
+      <span>Atendimento Personalizado</span>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       3. SOBRE — foto fullscreen com card de texto
+  ============================================================ -->
+  <section class="sobre" id="sobre">
+    <div class="sobre-foto-wrap">
+      <img src="fotos/dr.jpg" alt="Dra Isauria d'Avila" class="sobre-foto">
+    </div>
+    <div class="sobre-conteudo">
+      <span class="sobre-tag">Sobre mim</span>
+      <h2 class="sobre-titulo">Pode me<br>chamar de <em>Isa</em></h2>
+      <p class="sobre-texto">Biomédica com residência em harmonização facial, atuo desde 2021 com o propósito de fazer com que você se sinta mais confiante e goste do que vê no espelho.</p>
+      <ul class="sobre-lista">
+        <li>🤍 Biomédica habilitada · CRBM 13878</li>
+        <li>🤍 Residência em harmonização facial</li>
+        <li>🤍 Atendimento desde 2021</li>
+        <li>🤍 Lagoa Nova, Natal RN</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       4. SEPARADOR — frase curta, alto impacto
+  ============================================================ -->
+  <section class="sep-frase">
+    <div class="sep-frase-inner reveal">
+      <div class="sep-linha"></div>
+      <blockquote>"Meu propósito é fazer com que você se sinta mais confiante."</blockquote>
+      <div class="sep-linha"></div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       5. PROCEDIMENTOS — carrossel snap
+  ============================================================ -->
+  <section class="proc-section" id="procedimentos">
+    <div class="proc-header reveal">
+      <span class="section-tag">O que faço</span>
+      <h2 class="section-titulo">Procedimentos</h2>
+    </div>
+    <div class="proc-track" id="procTrack">
+
+      <div class="proc-card" onclick="window.open('https://wa.me/5584994598000?text=Ol%C3%A1%20Isa!%20Tenho%20interesse%20em%3A%20Preenchimento%20Labial', '_blank')">
+        <div class="proc-card-inner">
+          <span class="proc-numero">01</span>
+          <div class="proc-icone">
+            <i data-lucide="droplet" style="width:24px;height:24px;stroke:#C4957A;stroke-width:1.2;fill:none;"></i>
+          </div>
+          <h3 class="proc-nome">Preenchimento Labial</h3>
+          <div class="proc-linha"></div>
+          <p class="proc-desc">Volume e definição para lábios que realçam a sua beleza natural, sem exageros.</p>
+          <span class="proc-cta">Agendar →</span>
+        </div>
+      </div>
+
+      <div class="proc-card" onclick="window.open('https://wa.me/5584994598000?text=Ol%C3%A1%20Isa!%20Tenho%20interesse%20em%3A%20Rinomodela%C3%A7%C3%A3o', '_blank')">
+        <div class="proc-card-inner">
+          <span class="proc-numero">02</span>
+          <div class="proc-icone">
+            <i data-lucide="wand-2" style="width:24px;height:24px;stroke:#C4957A;stroke-width:1.2;fill:none;"></i>
+          </div>
+          <h3 class="proc-nome">Rinomodelação</h3>
+          <div class="proc-linha"></div>
+          <p class="proc-desc">Harmonize o nariz sem cirurgia, corrigindo assimetrias e refinando o perfil.</p>
+          <span class="proc-cta">Agendar →</span>
+        </div>
+      </div>
+
+      <div class="proc-card" onclick="window.open('https://wa.me/5584994598000?text=Ol%C3%A1%20Isa!%20Tenho%20interesse%20em%3A%20Botox', '_blank')">
+        <div class="proc-card-inner">
+          <span class="proc-numero">03</span>
+          <div class="proc-icone">
+            <i data-lucide="sparkles" style="width:24px;height:24px;stroke:#C4957A;stroke-width:1.2;fill:none;"></i>
+          </div>
+          <h3 class="proc-nome">Botox</h3>
+          <div class="proc-linha"></div>
+          <p class="proc-desc">Suavize linhas de expressão preservando sua naturalidade e expressividade.</p>
+          <span class="proc-cta">Agendar →</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="proc-dots" id="procDots">
+      <span class="proc-dot active"></span>
+      <span class="proc-dot"></span>
+      <span class="proc-dot"></span>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       6. SEPARADOR COM FOTO — fullscreen
+  ============================================================ -->
+  <section class="sep-foto" id="sep1">
+    <img src="fotos/02.jpg" alt="" class="sep-foto-img" loading="lazy">
+    <div class="sep-foto-overlay"></div>
+    <div class="sep-foto-conteudo">
+      <div class="sep-linha-ouro"></div>
+      <p>"Desacelere os sinais do envelhecimento com quem cuida de cada detalhe."</p>
+      <div class="sep-linha-ouro"></div>
+      <a href="https://wa.me/5584994598000" class="btn-primario sep-foto-btn" target="_blank" rel="noopener">
+        Agendar consulta
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       7. RESULTADOS — grid antes/depois com reveal
+  ============================================================ -->
+  <section class="resultados" id="resultados">
+    <div class="resultados-header reveal">
+      <span class="section-tag">Transformações</span>
+      <h2 class="section-titulo">Antes e depois</h2>
+      <p class="section-sub">Resultados reais com cuidado e técnica.</p>
+    </div>
+
+    <div class="resultados-grid">
+
+      <div class="resultado-item reveal-item">
+        <div class="reveal-panel"><span>🤍</span></div>
+        <div class="resultado-foto-wrap">
+          <img src="fotos/antes.jpg" alt="Preenchimento Labial — Antes" class="resultado-img" loading="lazy">
+          <span class="resultado-label">Antes</span>
+        </div>
+        <div class="resultado-divider"><span>IU</span></div>
+        <div class="resultado-foto-wrap">
+          <img src="fotos/depois1.jpg" alt="Preenchimento Labial — Depois" class="resultado-img" loading="lazy">
+          <span class="resultado-label depois">Depois</span>
+        </div>
+        <p class="resultado-nome">Preenchimento Labial</p>
+      </div>
+
+      <div class="resultado-item reveal-item">
+        <div class="reveal-panel"><span>🤍</span></div>
+        <div class="resultado-foto-wrap">
+          <img src="fotos/antes2.jpg" alt="Rinomodelação — Antes" class="resultado-img" loading="lazy">
+          <span class="resultado-label">Antes</span>
+        </div>
+        <div class="resultado-divider"><span>IU</span></div>
+        <div class="resultado-foto-wrap">
+          <img src="fotos/depois2.jpg" alt="Rinomodelação — Depois" class="resultado-img" loading="lazy">
+          <span class="resultado-label depois">Depois</span>
+        </div>
+        <p class="resultado-nome">Rinomodelação</p>
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       8. DEPOIMENTOS — carrossel snap
+  ============================================================ -->
+  <section class="depoimentos">
+    <div class="dep-header reveal">
+      <span class="section-tag">Depoimentos</span>
+      <h2 class="section-titulo">O que dizem minhas pacientes</h2>
+    </div>
+    <div class="dep-track">
+
+      <!-- SUBSTITUIR pelos depoimentos reais -->
+      <div class="dep-card">
+        <span class="dep-aspas">"</span>
+        <span class="dep-estrelas">★★★★★</span>
+        <p class="dep-texto">"A Isa tem uma sensibilidade incrível. Meu resultado ficou exatamente o que eu queria — natural, sutil e muito bonito. Me sinto muito mais confiante!"</p>
+        <div class="dep-linha"></div>
+        <span class="dep-nome"><!-- EDITAR: Nome da paciente --></span>
+      </div>
+
+      <div class="dep-card">
+        <span class="dep-aspas">"</span>
+        <span class="dep-estrelas">★★★★★</span>
+        <p class="dep-texto">"Fui com medo e saí encantada. Ela explica tudo com muito cuidado antes de começar. Profissional e atenciosa demais!"</p>
+        <div class="dep-linha"></div>
+        <span class="dep-nome"><!-- EDITAR: Nome da paciente --></span>
+      </div>
+
+      <div class="dep-card">
+        <span class="dep-aspas">"</span>
+        <span class="dep-estrelas">★★★★★</span>
+        <p class="dep-texto">"Cada detalhe realmente é pensado com carinho. Já indiquei para todas as minhas amigas. Resultado impecável!"</p>
+        <div class="dep-linha"></div>
+        <span class="dep-nome"><!-- EDITAR: Nome da paciente --></span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       9. CTA FINAL — fullscreen rosa
+  ============================================================ -->
+  <section class="cta-final" id="contato">
+    <div class="cta-topo">
+      <div class="cta-linha"></div>
+      <span class="cta-tag">Agende sua consulta</span>
+      <div class="cta-linha"></div>
+    </div>
+    <h2 class="cta-titulo">Pronta para se sentir mais <em>confiante?</em></h2>
+    <p class="cta-sub">Cada detalhe será cuidado com amor, carinho e respeito à sua individualidade.</p>
+    <a href="https://wa.me/5584994598000" class="cta-btn" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.531 5.847L.057 23.428a.5.5 0 00.609.61l5.627-1.476A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.882 0-3.64-.497-5.162-1.367l-.369-.214-3.828 1.004 1.021-3.736-.232-.38A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Agendar pelo WhatsApp
+    </a>
+    <div class="cta-divider"></div>
+    <div class="cta-info">
+      <span>📍 Av. Nascimento de Castro, 2395</span>
+      <span>Lagoa Nova · Natal RN</span>
+    </div>
+    <div class="cta-monograma">IU</div>
+  </section>
+
+
+  <!-- ============================================================
+       10. RODAPÉ
+  ============================================================ -->
+  <footer class="rodape">
+    <div class="rodape-inner">
+      <div class="rodape-marca">
+        <p class="rodape-logo">Dra Isauria d'Avila</p>
+        <p class="rodape-sub">Biomédica Esteta · CRBM 13878</p>
+      </div>
+
+      <nav class="rodape-links">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#procedimentos">Procedimentos</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <div class="rodape-contato">
+        <span>📱 (84) 99459-8000</span>
+        <!-- EDITAR: @ do Instagram da Isa -->
+        <span>📸 @draisauria</span>
+        <span>📍 Av. Nascimento de Castro, 2395 · Lagoa Nova, Natal RN</span>
+      </div>
+
+      <p class="rodape-copy">© 2025 Dra Isauria d'Avila. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       BOTÃO FLUTUANTE WHATSAPP
+  ============================================================ -->
+  <a href="https://wa.me/5584994598000" class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.107 1.522 5.832L.057 23.428a.5.5 0 0 0 .514.572l5.736-1.503A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.8 9.8 0 0 1-5.007-1.37l-.359-.214-3.724.977.993-3.629-.235-.373A9.788 9.788 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+    </svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

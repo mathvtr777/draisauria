@@ -1,0 +1,1306 @@
+/* ============================================================
+   VARIÁVEIS
+   ============================================================ */
+:root {
+  --rosa:        #F2E4E1;
+  --rosa-medio:  #E8C8C2;
+  --rosa-forte:  #D4A09A;
+  --branco:      #FFFFFF;
+  --creme:       #FAF8F6;
+  --nude:        #F5EDE8;
+  --escuro:      #2C1F1C;
+  --medio:       #6B4A45;
+  --claro:       #B08880;
+  --ouro-rosa:   #C4957A;
+  --ouro-claro:  #E8D0C4;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  color: var(--escuro);
+  background: var(--branco);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* ============================================================
+   UTILITÁRIOS GLOBAIS
+   ============================================================ */
+.section-tag {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ouro-rosa);
+  margin-bottom: 8px;
+}
+
+.section-titulo {
+  font-family: 'Cormorant', serif;
+  font-size: 38px;
+  font-weight: 300;
+  color: var(--escuro);
+  line-height: 1.2;
+}
+
+.section-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--medio);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+/* Linha decorativa ouro */
+.sep-linha-ouro {
+  width: 48px;
+  height: 1px;
+  background: var(--ouro-rosa);
+  opacity: 0.7;
+}
+
+/* Botões */
+.btn-primario {
+  display: block;
+  text-align: center;
+  background: var(--rosa-forte);
+  color: white;
+  padding: 15px 28px;
+  border-radius: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primario:active {
+  transform: scale(0.97);
+}
+
+.btn-ghost {
+  display: block;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-ghost:active {
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+}
+
+/* Scroll reveal geral */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.0);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 1px 20px rgba(44, 31, 28, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  height: 60px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo-img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-logo-texto {
+  font-family: 'Cormorant', serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: white;
+  transition: color 0.4s ease;
+}
+
+.navbar.scrolled .nav-logo-texto {
+  color: var(--escuro);
+}
+
+/* Hambúrguer */
+.nav-hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.4s ease;
+}
+
+.navbar.scrolled .nav-hamburger span {
+  background: var(--escuro);
+}
+
+.nav-hamburger.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.active span:nth-child(2) { opacity: 0; }
+.nav-hamburger.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Drawer */
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: min(300px, 85vw);
+  height: 100vh;
+  background: var(--branco);
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: right 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+}
+
+.nav-drawer.open {
+  right: 0;
+}
+
+.drawer-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--medio);
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drawer-header {
+  padding: 40px 32px 24px;
+  border-bottom: 1px solid var(--ouro-claro);
+}
+
+.drawer-nome {
+  font-family: 'Cormorant', serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--escuro);
+  margin-bottom: 4px;
+}
+
+.drawer-cred {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: var(--ouro-rosa);
+  letter-spacing: 1px;
+}
+
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  flex: 1;
+}
+
+.drawer-link {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--medio);
+  padding: 16px 32px;
+  border-bottom: 1px solid rgba(232, 208, 196, 0.4);
+  display: block;
+  transition: color 0.2s, padding-left 0.2s;
+}
+
+.drawer-link:active {
+  color: var(--ouro-rosa);
+  padding-left: 40px;
+}
+
+.drawer-btn {
+  margin: 24px 32px 40px;
+  display: block;
+}
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 31, 28, 0.4);
+  z-index: 1050;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.38s ease;
+}
+
+.nav-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+/* ============================================================
+   1. HERO — foto tela cheia
+   ============================================================ */
+.hero {
+  background: var(--creme);
+  min-height: 100svh;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 100px 28px 60px;
+}
+
+.hero-img-wrap,
+.hero-overlay,
+.hero-scroll-hint {
+  display: none;
+}
+
+.hero-conteudo {
+  width: 100%;
+}
+
+.hero-tag {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ouro-rosa);
+  margin-bottom: 16px;
+}
+
+.hero-titulo {
+  font-family: 'Cormorant', serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--escuro);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  margin-top: 8px;
+}
+
+.hero-titulo em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rosa-forte);
+}
+
+.hero-linha {
+  width: 48px;
+  height: 1px;
+  background: var(--ouro-rosa);
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+
+.hero-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: var(--medio);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 28px;
+  max-width: 300px;
+}
+
+.hero-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-ghost {
+  border: 1px solid var(--rosa-medio);
+  color: var(--medio);
+}
+
+/* Scroll hint */
+.hero-scroll-hint {
+  display: none;
+}
+
+.hero-scroll-hint span {
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.4));
+  margin: 0 auto;
+  animation: scrollHint 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollHint {
+  0%, 100% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+  50%       { opacity: 1; transform: scaleY(1); transform-origin: top; }
+}
+
+
+/* ============================================================
+   2. CREDENCIAIS — marquee
+   ============================================================ */
+.credenciais {
+  background: var(--rosa-forte);
+  padding: 14px 0;
+  overflow: hidden;
+}
+
+.credenciais-track {
+  display: flex;
+  animation: marquee 18s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+.credenciais-track span {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0 24px;
+}
+
+.credenciais-track span::after {
+  content: '🤍';
+  margin-left: 24px;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+/* ============================================================
+   3. SOBRE — fullscreen com foto
+   ============================================================ */
+.sobre {
+  background: var(--creme);
+}
+
+.sobre-foto-wrap {
+  width: 100%;
+  height: 75svh;
+  height: 75vh;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.sobre-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.sobre-conteudo {
+  padding: 36px 28px 56px;
+  background: var(--creme);
+}
+
+.sobre-tag {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ouro-rosa);
+  margin-bottom: 14px;
+}
+
+.sobre-titulo {
+  font-family: 'Cormorant', serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--escuro);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.sobre-titulo em {
+  font-style: italic;
+  color: var(--rosa-forte);
+}
+
+.sobre-texto {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: var(--medio);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+.sobre-lista {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sobre-lista li {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  color: var(--medio);
+  font-weight: 300;
+}
+
+
+/* ============================================================
+   4. SEP-FRASE — citação sobre fundo rosa
+   ============================================================ */
+.sep-frase {
+  background: var(--rosa);
+  padding: 72px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sep-frase-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.sep-linha {
+  width: 48px;
+  height: 1px;
+  background: var(--ouro-rosa);
+  opacity: 0.6;
+}
+
+.sep-frase blockquote {
+  font-family: 'Cormorant', serif;
+  font-size: 26px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--escuro);
+  line-height: 1.5;
+}
+
+
+/* ============================================================
+   5. PROCEDIMENTOS — carrossel snap
+   ============================================================ */
+.proc-section {
+  background: var(--creme);
+  padding: 64px 0 48px;
+  overflow: hidden;
+}
+
+.proc-header {
+  padding: 0 28px;
+  margin-bottom: 36px;
+}
+
+.proc-track {
+  display: flex;
+  gap: 16px;
+  padding: 0 28px 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.proc-track::-webkit-scrollbar {
+  display: none;
+}
+
+.proc-card {
+  flex: 0 0 78vw;
+  max-width: 300px;
+  scroll-snap-align: start;
+  background: white;
+  border-radius: 24px;
+  border: 1px solid var(--ouro-claro);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.proc-card:active {
+  transform: scale(0.98);
+}
+
+.proc-card-inner {
+  padding: 40px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 340px;
+}
+
+.proc-numero {
+  font-family: 'Cormorant', serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--ouro-claro);
+  margin-bottom: 24px;
+}
+
+.proc-icone {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.proc-nome {
+  font-family: 'Cormorant', serif;
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--escuro);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.proc-linha {
+  width: 36px;
+  height: 1px;
+  background: var(--ouro-rosa);
+  opacity: 0.5;
+  margin-bottom: 16px;
+}
+
+.proc-desc {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  color: var(--medio);
+  line-height: 1.7;
+  font-weight: 300;
+  flex: 1;
+  margin-bottom: 28px;
+}
+
+.proc-cta {
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--rosa-forte);
+  font-weight: 500;
+}
+
+.proc-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 24px;
+  padding: 0 28px;
+}
+
+.proc-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rosa-medio);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: default;
+}
+
+.proc-dot.active {
+  background: var(--rosa-forte);
+  width: 20px;
+  border-radius: 4px;
+}
+
+
+/* ============================================================
+   6. SEPARADOR COM FOTO — fullscreen
+   ============================================================ */
+.sep-foto {
+  position: relative;
+  height: 100svh;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sep-foto-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.sep-foto-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 31, 28, 0.55);
+}
+
+.sep-foto-conteudo {
+  position: relative;
+  z-index: 2;
+  padding: 0 36px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.sep-foto-conteudo p {
+  font-family: 'Cormorant', serif;
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 300;
+  color: white;
+  line-height: 1.5;
+  max-width: 320px;
+}
+
+.sep-foto-btn {
+  margin-top: 12px;
+  max-width: 260px;
+  width: 100%;
+}
+
+
+/* ============================================================
+   7. RESULTADOS — grade antes/depois com reveal
+   ============================================================ */
+.resultados {
+  background: var(--nude);
+  padding: 64px 0 48px;
+}
+
+.resultados-header {
+  padding: 0 20px;
+  margin-bottom: 36px;
+}
+
+.resultados-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 0 20px;
+}
+
+.resultado-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--escuro);
+}
+
+.resultado-foto-wrap {
+  position: relative;
+}
+
+.resultado-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.resultado-label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(44, 31, 28, 0.6);
+  padding: 3px 7px;
+  border-radius: 4px;
+}
+
+.resultado-label.depois {
+  background: rgba(212, 160, 154, 0.85);
+}
+
+.resultado-divider {
+  background: var(--escuro);
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  gap: 8px;
+}
+
+.resultado-divider::before {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(196, 149, 122, 0.25);
+}
+
+.resultado-divider span {
+  font-family: 'Cormorant', serif;
+  font-size: 10px;
+  color: var(--ouro-rosa);
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+
+.resultado-nome {
+  background: var(--escuro);
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 8px 10px 12px;
+  font-weight: 300;
+}
+
+/* Reveal */
+.reveal-panel {
+  position: absolute;
+  inset: 0;
+  background: var(--rosa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0%);
+  transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+  z-index: 2;
+  border-radius: 16px;
+}
+
+.reveal-panel span {
+  font-size: 20px;
+  opacity: 0.3;
+}
+
+.reveal-item.is-revealed .reveal-panel {
+  transform: translateY(-100%);
+}
+
+
+/* ============================================================
+   8. DEPOIMENTOS — carrossel snap
+   ============================================================ */
+.depoimentos {
+  background: var(--rosa);
+  padding: 64px 0 48px;
+  overflow: hidden;
+}
+
+.dep-header {
+  padding: 0 28px;
+  margin-bottom: 0;
+}
+
+.dep-track {
+  display: flex;
+  gap: 16px;
+  padding: 36px 28px 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.dep-track::-webkit-scrollbar {
+  display: none;
+}
+
+.dep-card {
+  flex: 0 0 82vw;
+  max-width: 320px;
+  scroll-snap-align: start;
+  background: white;
+  border-radius: 24px;
+  padding: 32px 24px;
+  box-shadow: 0 4px 24px rgba(44, 31, 28, 0.07);
+  flex-shrink: 0;
+}
+
+.dep-aspas {
+  font-family: 'Cormorant', serif;
+  font-size: 64px;
+  color: var(--rosa-forte);
+  opacity: 0.2;
+  line-height: 0.8;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.dep-estrelas {
+  color: var(--ouro-rosa);
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.dep-texto {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: var(--medio);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.dep-linha {
+  width: 32px;
+  height: 1px;
+  background: var(--ouro-rosa);
+  opacity: 0.4;
+  margin-bottom: 12px;
+}
+
+.dep-nome {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--escuro);
+}
+
+
+/* ============================================================
+   9. CTA FINAL — fullscreen rosa
+   ============================================================ */
+.cta-final {
+  background: #2C1F1C;
+  min-height: 100svh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-monograma {
+  position: absolute;
+  font-family: 'Cormorant', serif;
+  font-size: 220px;
+  font-weight: 300;
+  color: rgba(196, 149, 122, 0.04);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  letter-spacing: 12px;
+  line-height: 1;
+  user-select: none;
+}
+
+.cta-topo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+  width: 100%;
+  max-width: 280px;
+}
+
+.cta-linha {
+  flex: 1;
+  height: 1px;
+  background: rgba(196, 149, 122, 0.35);
+}
+
+.cta-tag {
+  font-family: 'Nunito', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ouro-rosa);
+  white-space: nowrap;
+}
+
+.cta-titulo {
+  font-family: 'Cormorant', serif;
+  font-size: 42px;
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+.cta-titulo em {
+  font-style: italic;
+  color: var(--rosa-medio);
+}
+
+.cta-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 40px;
+  max-width: 280px;
+}
+
+.cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--rosa-forte);
+  color: white;
+  padding: 17px 32px;
+  border-radius: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  width: 100%;
+  max-width: 320px;
+  transition: background 0.2s ease;
+}
+
+.cta-btn:active {
+  background: var(--rosa-medio);
+}
+
+.cta-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(196, 149, 122, 0.2);
+  margin: 32px auto;
+}
+
+.cta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cta-info span {
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
+}
+
+
+/* ============================================================
+   10. RODAPÉ
+   ============================================================ */
+.rodape {
+  background: var(--escuro);
+  padding: 48px 28px 32px;
+}
+
+.rodape-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.rodape-marca {
+  margin-bottom: 32px;
+}
+
+.rodape-logo {
+  font-family: 'Cormorant', serif;
+  font-size: 22px;
+  color: white;
+  font-weight: 300;
+  margin-bottom: 4px;
+}
+
+.rodape-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 1px;
+}
+
+.rodape-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.rodape-links a {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.rodape-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(196, 149, 122, 0.12);
+  margin-bottom: 28px;
+}
+
+.rodape-contato span {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.rodape-copy {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* ============================================================
+   BOTÃO FLUTUANTE WHATSAPP
+   ============================================================ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  z-index: 999;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+}
+
+.whatsapp-float:active {
+  transform: scale(0.93);
+}
+
+
+/* ============================================================
+   DESKTOP — site é mobile-first; desktop apenas centraliza
+   ============================================================ */
+@media (min-width: 769px) {
+
+  /* Navbar desktop */
+  .navbar {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 68px;
+  }
+
+  .nav-hamburger {
+    display: none;
+  }
+
+  /* Nav links desktop */
+  .nav-inner::after {
+    display: none; /* não há links desktop declarados — usar drawer para ambos */
+  }
+
+  /* Centraliza conteúdo no desktop */
+  .hero-conteudo {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .sobre-conteudo {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .sep-frase-inner {
+    max-width: 400px;
+  }
+
+  .sep-frase blockquote {
+    font-size: 32px;
+  }
+
+  .proc-section {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .sep-foto-conteudo {
+    max-width: 480px;
+  }
+
+  .sep-foto-conteudo p {
+    font-size: 34px;
+    max-width: 400px;
+  }
+
+  .resultados {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .resultados-header {
+    padding: 0 20px;
+  }
+
+  .dep-header {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .dep-track {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .cta-final {
+    padding: 100px 40px;
+  }
+
+  .cta-titulo {
+    font-size: 48px;
+  }
+
+  .rodape-inner {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .hero-titulo {
+    font-size: 64px;
+  }
+
+  .sobre-titulo {
+    font-size: 52px;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
+  }
+
+  .btn-primario:hover {
+    background: var(--medio);
+  }
+
+  .proc-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(44, 31, 28, 0.1);
+  }
+}
+
+/* Telas muito pequenas */
+@media (max-width: 360px) {
+  .hero-titulo {
+    font-size: 42px;
+  }
+
+  .sobre-titulo {
+    font-size: 36px;
+  }
+
+  .proc-card {
+    flex: 0 0 88vw;
+  }
+
+  .dep-card {
+    flex: 0 0 88vw;
+  }
+
+  .resultados-grid {
+    grid-template-columns: 1fr;
+  }
+}
