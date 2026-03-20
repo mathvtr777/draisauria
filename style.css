@@ -964,24 +964,6 @@ ul { list-style: none; }
   text-align: center;
 }
 
-.cta-watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 65%;
-  height: auto;
-  object-fit: contain;
-  opacity: 0.10;
-  filter: brightness(0) invert(1);
-  z-index: 0;
-  pointer-events: none;
-}
-
-.cta-final > *:not(.cta-watermark) {
-  position: relative;
-  z-index: 1;
-}
 
 .cta-monograma {
   position: absolute;
