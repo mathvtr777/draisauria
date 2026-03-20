@@ -535,7 +535,7 @@ ul { list-style: none; }
    4. SEP-FRASE — citação sobre fundo rosa
    ============================================================ */
 .sep-frase {
-  background: var(--rosa);
+  background: #E4DBCA;
   padding: 72px 28px;
   display: flex;
   align-items: center;
