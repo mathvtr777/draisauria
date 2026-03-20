@@ -172,6 +172,12 @@ ul { list-style: none; }
   object-fit: contain;
 }
 
+@media (max-width: 768px) {
+  .nav-logo-img {
+    height: 90px;
+  }
+}
+
 .nav-logo-texto {
   font-family: 'Cormorant', serif;
   font-size: 17px;
